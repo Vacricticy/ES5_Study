@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 数字前面加0表示八进制
+      var num = 017;
+      console.log(num); //15
+      // 加0x表示十六进制
+      var num2 = 0x1f;
+      console.log(num2); //31
+      // 正数的最大值
+      console.log(Number.MAX_VALUE);
+      // 正数的最小值
+      console.log(Number.MIN_VALUE);
+      // 无穷大Infinity
+      console.log(Number.MAX_VALUE * 2);
+      // 无穷小-Infinity
+      console.log(-Number.MAX_VALUE * 2);
+      // 非数字NaN
+      console.log("liu" - 300); //NaN
+      // 注意：
+      console.log("liu" + 300); //liu300
+      console.log("400" - 300); //100
+
+      //   判断是否为非数字isNaN()
+      console.log(isNaN(222)); //false
+    </script>
+  </body>
+</html>

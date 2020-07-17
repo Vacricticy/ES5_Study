@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   1.转换成字符串
+      //   方法一：变量.toString()
+      var num = 11;
+      //   console.log(typeof num.toString()); //string
+      //   方法二：String()
+      //   console.log(typeof String(num));
+      //   方法三（常用）：123+ ''  这是一种隐式转换，即会先把数字123转换为"123"
+      console.log(typeof (num + ""));
+
+      //   2.转换为数字型
+
+      //   方法一（重点）：转换为整数：
+      console.log(typeof parseInt("111")); //number
+      console.log(parseInt(3.98)); //3
+      //   parseInt是一位一位的转换的 ：
+      console.log(parseInt("120px")); //120
+      console.log(parseInt("aaa120px")); //NaN
+
+      //   方法二（重点）：转换为浮点数：
+      console.log(parseFloat(200)); //200 依旧是200，不是200.0
+      console.log(parseFloat("120px")); //120
+
+      //   方法三：Number()
+      console.log(Number("12"));
+
+      //   方法四："123"-"120" 这是一种隐式转换，即先把"123"和"120"转换为数字型的123和120
+      console.log("123" - 0); //123
+      console.log("123" - "120"); //3
+      //   除了-外，* /也是一样的
+      console.log("12" * "2"); //24
+
+      //   3.转换为布尔型：Boolean()
+      //   代表空，否定的值都会被转换为false,比如："" 0 NaN null undefined
+      console.log(Boolean("")); //false
+      console.log(Boolean(0)); //false
+      console.log(Boolean(NaN)); //false
+      console.log(Boolean(null)); //false
+      console.log(Boolean(undefined)); //false
+      console.log(Boolean({})); //true
+      console.log(Boolean([])); //true
+      console.log(Boolean("''")); //true
+    </script>
+  </body>
+</html>

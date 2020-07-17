@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        js的数据类型分为简单数据类型和复杂数据类型
+            简单数据类型：Number,String,Boolean,Undefined,Null                
+    -->
+    <script>
+      // 检测变量属于那种类型typeof
+      console.log(typeof "111"); //string 注意：是小写开头的
+      console.log(typeof undefined); //undefined
+      console.log(typeof true); //boolean
+
+      console.log(typeof null); //object
+
+      // 注意：从输入框中接受到的数字是字符串类型的，不能直接进行加减运算
+      var num = prompt("请输入数字：");
+      console.log(typeof num); //string
+
+      //   字面量：表达式右边的部分
+      var num2 = 3; //其中3就是字面量
+    </script>
+  </body>
+</html>
