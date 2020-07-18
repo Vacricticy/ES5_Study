@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 案例1：
+      //   var num = 10;
+      //   fun();
+      //   function fun() {
+      //     console.log(num); //undefined
+      //     var num = 20;
+      //   }
+      //   上述代码相当于：
+      //   var num;
+      //   function fun() {
+      //     var num;
+      //     console.log(num);
+      //     num = 20;
+      //   }
+      //   num = 10;
+      //   fun();
+
+      //   案例2：
+      //   var num = 10;
+      //   function fn() {
+      //     console.log(num); //undefined
+      //     var num = 20;
+      //     console.log(num); //20
+      //   }
+      //   fn();
+      //   上述代码相当于：
+      //   var num;
+      //   function fn() {
+      //     var num;
+      //     console.log(num);
+      //     num = 20;
+      //     console.log(num);
+      //   }
+      //   num = 10;
+      //   fn();
+
+      //   案例3：
+      //   var a = 18;
+      //   f1();
+      //   function f1() {
+      //     var b = 9;
+      //     console.log(a); //undefined
+      //     console.log(b); //9
+      //     var a = "123";
+      //   }
+      // 上述代码相当于：
+      //   var a;
+      //   function f1() {
+      //     var b;
+      //     var a;
+      //     b = 9;
+      //     console.log(a);
+      //     console.log(b);
+      //     a = "123";
+      //   }
+      //   a = 18;
+      //   f1();
+
+      //   案例4：（经典面试题）
+      f1();
+      console.log(c);
+      console.log(b);
+      console.log(a);
+      function f1() {
+        // ❤❤❤ 注意：
+        // var a=b=c=9;相当于var a=9;b=9;c=9;其与var a=9,b=9,c=9;是不同的。前者的b和c变成了全局变量
+        var a = (b = c = 9);
+        console.log(a);
+        console.log(b);
+        console.log(c);
+      }
+      //   输出为：9 9 9 9 9 a is not defined
+
+      //   上述代码相当于：
+      //   function f1() {
+      //     // var a=9;b=9;c=9;
+      //     var a;
+      //     a = 9;
+      //     b = 9;
+      //     c = 9;
+      //     console.log(a);
+      //     console.log(b);
+      //     console.log(c);
+      //   }
+      //   f1();
+      //   console.log(c);
+      //   console.log(b);
+      //   console.log(a);
+    </script>
+  </body>
+</html>

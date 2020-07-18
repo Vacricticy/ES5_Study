@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数的两种声明方式：
+      // 1.命名函数（利用函数关键字自定义函数）
+      function func() {}
+      // 2.匿名函数（函数表达式）
+      // 注意：func是变量名，不是函数名
+      var func = function () {};
+
+      function fn() {
+        //   arguments是js中函数的内置对象，以伪数组的形式存储了传递进来的实参
+        console.log(arguments);
+      }
+      fn(1, 4, 6);
+    </script>
+  </body>
+</html>

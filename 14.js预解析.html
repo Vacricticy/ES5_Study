@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.js引擎 运行js 分为两步：预解析，代码执行
+      //   预解析：js引擎会先把所有的var和function提升到‘当前作用域’的最前面
+      //   代码执行：预解析之后按照代码从上到下以此执行
+
+      // 2.预解析的详细过程：
+      // 预解析分为 变量预解析（变量提升）和 函数预解析（函数提升）
+      // 变量提升：将所有的变量声明var提升到‘当前作用域’的最前面，注意：赋值操作不会被提升。
+      // 函数提升：将所有的函数声明function提升到‘当前作用域’的最前面，注意：不会调用当前函数
+
+      // 注意点1：
+      console.log(num1); //undefined
+      var num1 = 11;
+      //   上述代码相当于：
+      //   var num1;
+      //   console.log(num1);
+      //   num1 = 11;
+
+      // 注意点2：
+      //   fun(); //Uncaught TypeError: fun is not a function
+      //   var fun = function () {
+      //     console.log(22);
+      //   };
+      //   上述代码相当于：
+      //   var fun;
+      //   fun();
+      //   fun = function () {
+      //     console.log(22);
+      //   };
+
+      // 注意点3：
+      fn(); //222
+      function fn() {
+        console.log(222);
+      }
+      //   上述代码相当于：
+      //   function fn() {
+      //     console.log(222);
+      //   }
+      //   fn();
+    </script>
+  </body>
+</html>
