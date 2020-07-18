@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(new Date());
+      console.log(new Date(2020, 7, 18)); //这种传参的方式返回的月份要大一个月
+      console.log(new Date("2020-7-18"));
+
+      var date = new Date();
+      console.log(date.getFullYear()); //2020 获取年份
+      console.log(date.getMonth()); //6 获取的月份为0-11，比实际的小一个月
+      console.log(date.getDate()); //18 获取日期使用的是getDate,而不是getDay
+      console.log(date.getDay()); //6 获取的星期数为0-6，0为星期天。
+      console.log(date.getHours());
+      console.log(date.getMinutes());
+      console.log(date.getSeconds());
+
+      // 按指定的格式自定义获取当前的时间
+      function getTime() {
+        var date = new Date();
+        // 星期的设置：
+        var weeks = [
+          "星期天",
+          "星期一",
+          "星期二",
+          "星期三",
+          "星期四",
+          "星期五",
+          "星期六",
+        ];
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        var d = date.getDate();
+        var h = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+        var min =
+          date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+        var s =
+          date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+        return `${y}-${m}-${d} ${h}:${min}:${s}`;
+      }
+      console.log(getTime());
+
+      //   获取当前日期的总‘毫秒’数(时间戳)：参照的是1970年1月1日的时间
+      //   总共4种方法：
+      console.log(new Date().valueOf());
+      console.log(new Date().getTime());
+      console.log(+new Date()); //最常用的方法
+      //   h5新增的方法：
+      console.log(Date.now());
+
+      //   倒计时的实现：
+      function getCountDown(future) {
+        var now = +new Date();
+        future = +new Date(future);
+        var times = (now - future) / 1000; //获取相隔的秒数
+        var d = times / 60 / 60 / 24;
+        var h = (times / 60 / 60) % 24;
+        var m = (times / 60) % 60;
+        var s = times % 60;
+        return `${d}:${h}:${m}:${s}`;
+      }
+      console.log(getCountDown("2020-07-20 00:00:00"));
+    </script>
+  </body>
+</html>

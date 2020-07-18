@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 创建对象的三种方式：
+      // 1.使用对象字面量{}创建对象
+      var obj = {
+        uname: "刘小康",
+        age: "20",
+      };
+      // 调用对象属性的方法有两种：
+      console.log(obj.uname);
+      console.log(obj["age"]);
+
+      // 变量与属性，函数与方法的区别：属性和方法是存在对象里面的。
+
+      // 2.利用new Object()创建对象
+      var obj2 = new Object();
+      obj2.uname = "刘小康";
+      obj2.age = 20;
+
+      // 3.利用构造函数来创建对象
+      function People(uname, age) {
+        this.uname = uname;
+        this.age = age;
+        this.sing = function () {
+          console.log("sing a song");
+        };
+      }
+      var people = new People("刘小康", 20);
+      //   new关键字在执行的时候的过程：
+      //   先在内存中创建一个空的对象，
+      //   然后让this指向这个对象，
+      //   然后再为这个对象添加属性和方法，
+      //   最后再返回这个对象。
+      console.log(people);
+
+      //   遍历对象：使用for...in
+      for (k in people) {
+        // 其中的k表示该对象的属性名
+        // 只能使用people[k]的方式获取属性的值，不能使用people.k
+        console.log(people[k]);
+        // console.log(people.k);
+
+        if (typeof people[k] == "function") {
+          people[k]();
+        }
+      }
+    </script>
+  </body>
+</html>
