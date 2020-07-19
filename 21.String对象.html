@@ -10,7 +10,7 @@
       // 1.基本包装类型：
       var str = "liu";
       console.log(str.length); //3
-      //   按理说str应该属于简单数据类型String，所以不存在 .属性 这种形式。但这里能访问.length属性是因为这里存在基本包装类型。
+      //   按理说str应该属于简单数据类型String，所以不存在 .属性 这种形式。但这里能访问.length属性是因为js引擎作了特殊处理，这里属于基本包装类型。
 
       //   基本包装类型：就是js引擎会自动将简单数据类型 包装为 复杂数据类型。
       // var str="liu"相当于：
@@ -18,7 +18,7 @@
       // str=tmp;
       // tmp=null;
 
-      // 2.字符串的不可变性
+      // 2.字符串的不可变性。注意：是字符串的不可变性，其他数据类型是直接在原内存空间修改值。
       //   每次赋值先是在内存中开辟一块空间存储这个值，然后再让这个变量指向这个内存。
       //   所以字符串在拼接的时候，会不断的开辟空间,消耗内存。
       var str2 = "liu";
@@ -36,6 +36,85 @@
       //   3表示开始查找的位置
       console.log(str.indexOf("c", 3)); //9
       console.log(str.lastIndexOf("c")); //9
+
+      //   案例：查找字符串中某个字符出现的所有位置以及次数
+      // 核心：充分利用String.prototype.indexof()的第二个参数
+      console.log("----------------");
+      var str2 = "cabcdefgabcdefgc";
+      var index = str2.indexOf("c");
+      var num = 0;
+      while (index != -1) {
+        num++;
+        console.log(index);
+        //  关键点：查找到该字符后，下一次查找的索引为该位置加1
+        index = str2.indexOf("c", index + 1);
+      }
+      console.log("总共出现的次数为", num);
+
+      //   (2)根据位置返回字符
+      var str = "balabala";
+      console.log(str.charAt(3)); //a
+      console.log(str[3]); //a   h5新增的方法
+
+      //   案例：统计字符串中出现最多的字符和出现的次数
+      var str = "aaabbbcccdddcccbbbaaamjmjmjmjbbb";
+      // 要点1：统计每一个字符出现的次数，并在对象中以键值对的形式保存起来。
+      var o = {};
+      for (var i = 0; i < str.length; i++) {
+        if (o[str[i]]) {
+          o[str[i]]++;
+        } else {
+          o[str[i]] = 1;
+        }
+      }
+      //   要点2：遍历对象获取次数最大的一项
+      var max = 0; //最多的次数
+      var maxkey = 0; //max对应的Key值
+      for (k in o) {
+        if (o[k] > max) {
+          max = o[k];
+          maxkey = k;
+        }
+      }
+      console.log("出现最多次的字符数是", maxkey, "，总共出现了", max, "次");
+
+      //   (3)根据位置返回字符的ASCII码
+      var str = "balabala";
+      console.log(str.charCodeAt(3)); //97
+
+      //   （4）连接字符串，但实际中还是常用+
+      var str1 = "aaa";
+      var str2 = "bbb";
+      console.log(str1.concat(str2));
+
+      //   (5)截取字符串
+      //   String.prototype.substr([起始索引位置，截取的个数])
+      var str = "abcdfeg";
+      console.log(str.substr(2, 4)); //cdfe
+      console.log(str.substr(-2)); //eg
+
+      //   (6)替换字符串
+      //   String.prototype,splice([被替换的字符，想要替换的字符])
+      var str = "andyandyandy";
+      console.log(str.replace("a", "b")); //bndyandyandy
+
+      //   案例：不使用正则表达式，将所有的o字符替换为*
+      var str = "aaabbbooocccdddoooaaa";
+      console.log(str);
+      while (str.indexOf("o") != -1) {
+        str = str.replace("o", "*");
+      }
+      console.log(str);
+
+      //  （7）字符串转换为数组(分隔字符串)
+      var str = "aaa-bbb-ccc";
+      console.log(str.split("-")); //["aaa", "bbb", "ccc"]
+
+      //   (8)转换大小写
+      var str = "jadjasSUUCHQA";
+      str.t;
+      console.log(str.toLowerCase());
+      console.log(str.toUpperCase());
     </script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        js的数据类型分为简单数据类型和复杂数据类型
+        
+        简单数据类型（值类型）：
+          number,string,boolean,undefined,null      
+          null的主要用途：初始化一个对象类型的变量 var obj=null; 
+          
+            
+        复杂数据类型（引用类型）:
+          Object Array Date 自定义的构造函数         
+
+        两种数据类型的内存分配：
+          简单数据类型 存储在栈中。栈里面直接开辟一个空间存储变量的值。
+          复杂数据类型 存储在堆中。首先是在栈里面存放地址（16进制的地址），这个地址指向堆里面的数据。
+
+        调用函数时传递的参数：
+          若是简单数据类型，因为传递的是‘值’，所以在进入函数内部时，会开辟一个新的变量和空间来存储这个‘值’。此时修改值，由于是不同的内存，所以不会影响原来的实参。
+          若是复杂数据类型，因为传递的是‘地址，所以在进入函数内部时，会开辟一个新的变量和空间来存储这个‘地址’。由于地址相同，即指向的是堆里面同样的数据，所以修改的时候会影响之前的实参。
+    -->
+    <script>
+      // 检测变量属于那种类型typeof
+      console.log(typeof "111"); //string 注意：是小写开头的
+      console.log(typeof undefined); //undefined
+      console.log(typeof true); //boolean
+
+      console.log(typeof null); //object 设计时的错误，不用管
+
+      // 注意：从输入框中接受到的数字是字符串类型的，不能直接进行加减运算
+      var num = prompt("请输入数字：");
+      console.log(typeof num); //string
+    </script>
+  </body>
+</html>
