@@ -24,11 +24,13 @@
       console.log(max);
 
       // 冒泡排序:
-      // 原理：每走一次循环都将最大或最小的元素放在最后，然后执行长度减1次循环。
+      // 原理：每走一次循环都将最大或最小的元素放在最后，总共需要执行arr.length-1次循环。
       var arr = [8, 2, 3, 4, 5, 9, 1, 2];
       console.log(arr);
+      // 外部循环控制循环多少次
       for (var i = 0; i < arr.length - 1; i++) {
-        for (var j = 0; j < arr.length - i - 1; j++) {
+        // 内部循环控制每一次需要比较的次数
+        for (var j = 0; j < arr.length - 1 - i; j++) {
           if (arr[j] > arr[j + 1]) {
             var tmp = arr[j];
             arr[j] = arr[j + 1];

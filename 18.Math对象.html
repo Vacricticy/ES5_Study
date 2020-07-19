@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      // 1.Math数据对象不是一个构造函数，不需要通过new关键字来创建，而是直接使用里面的属性和方法。
+      // 1.Math数学对象不是一个构造函数，不需要通过new关键字来创建，而是直接使用里面的属性和方法。
       console.log(Math.PI);
       console.log(Math.max(2, 4, 56, 7));
       console.log(Math.max(2, 4, "56")); //存在隐式转换
@@ -54,7 +54,7 @@
       //   7.生成随机数  Math.random()会随机返回一个[0,1)之间的浮点数。
       console.log(Math.random());
 
-      //   生成某两个数之间的随机整数，包含这两个数：
+      //   生成某两个数之间的随机整数，且包含这两个数：
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
