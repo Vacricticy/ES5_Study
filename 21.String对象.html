@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.基本包装类型：
+      var str = "liu";
+      console.log(str.length); //3
+      //   按理说str应该属于简单数据类型String，所以不存在 .属性 这种形式。但这里能访问.length属性是因为这里存在基本包装类型。
+
+      //   基本包装类型：就是js引擎会自动将简单数据类型 包装为 复杂数据类型。
+      // var str="liu"相当于：
+      // var tmp=new String("liu")
+      // str=tmp;
+      // tmp=null;
+
+      // 2.字符串的不可变性
+      //   每次赋值先是在内存中开辟一块空间存储这个值，然后再让这个变量指向这个内存。
+      //   所以字符串在拼接的时候，会不断的开辟空间,消耗内存。
+      var str2 = "liu";
+      str2 = "xiao";
+      for (var i = 0; i < 100; i++) {
+        str2 += "haha";
+      }
+      console.log(str2);
+      //   正是由于字符串的不可变性，所以字符串的所有方法都不会修改原字符串，而是会新开辟一块空间来存储这个字符串。
+
+      //   2.字符串对象常用方法：
+      // （1）返回字符的索引位置
+      var str = "abcdefgabcdefg";
+      console.log(str.indexOf("c")); //2
+      //   3表示开始查找的位置
+      console.log(str.indexOf("c", 3)); //9
+      console.log(str.lastIndexOf("c")); //9
+    </script>
+  </body>
+</html>

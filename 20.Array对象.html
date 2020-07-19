@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.创建数组的两种方式：
+      // 使用数组字面量：
+      var arr1 = [1, 2, 3];
+      // 使用new Array()
+      var arr2 = new Array();
+      var arr3 = new Array(3); //创建数组长度为3的数组，其中的三个元素为empty空元素。
+      console.log(arr3);
+      var arr4 = new Array(1, 2, 3);
+      console.log(arr4);
+
+      //   2.判断是否是数组的两种方式：
+      console.log((2, 4, 5) instanceof Array); //false
+      //   h5新增的方法
+      console.log(Array.isArray((2, 4, 5)));
+      console.log(Array.isArray([2, 4, 5]));
+
+      //   3.数组的常用方法:
+      var arr5 = [4, 5, 6, 7];
+
+      //（1）在数组末尾添加元素。
+      console.log(arr5.push(8, 9)); //6  返回值为新数组长度
+      console.log(arr5);
+
+      //（2）在数组前面添加元素。
+      console.log(arr5.unshift(1, 2, 3)); //9
+      console.log(arr5);
+
+      //（3）删除最后一个元素
+      console.log(arr5.pop()); //9 返回值为删除的值
+      console.log(arr5);
+
+      // （4）删除第一个元素
+      console.log(arr5.shift()); //1
+      console.log(arr5);
+
+      // （5）翻转数组：
+      var arr6 = [1, 4, 2, 5];
+      console.log(arr6.reverse()); //[5, 2, 4, 1]
+
+      // （6）数组排序：
+
+      var arr7 = [2, 41, 12, 56, 6];
+      // 升序排列
+      // arr7.sort((a, b) => a - b);
+      // 降序排列
+      // arr7.sort((a, b) => b - a);
+      console.log(arr7);
+
+      // （7）返回数组元素的索引号
+      var arr8 = ["red", "orange", "yellow", "red"];
+      console.log(arr8.indexOf("red")); //0 返回查找到的第一个元素的索引号
+      console.log(arr8.lastIndexOf("red")); //3 返回查找到的最后一个元素的索引号
+      console.log(arr8.indexOf("green")); //-1 不存在则返回-1
+
+      // 案例：数组去重
+      var old = [1, 23, 5, 2, 6, 1, 5, 6, "1"];
+      var newArr = [];
+      old.forEach((value) => {
+        //   关键点：
+        if (newArr.indexOf(value) == -1) {
+          newArr.push(value);
+        }
+      });
+      console.log(old);
+      console.log(newArr);
+
+      //   (8) 数组转换为字符串
+      var arr9 = [12, 43, 667];
+      console.log(arr9.toString()); //12,43,667 逗号分隔每一项
+      console.log(arr9.join()); //12,43,667 默认是逗号分隔每一项
+      console.log(arr9.join("*")); //12*43*667
+
+      //   （9） 合并数组
+      var arr10 = [1, 2, 4];
+      var arr11 = [5, 6, 7];
+      var arr12 = arr10.concat(arr11);
+      console.log(arr12); //[1, 2, 4, 5, 6, 7]
+
+      //   (10)截取数组Array.prototype.slice()。
+      var arr13 = ["a", "b", "c", "d", "e"];
+      //   该方法会返回一个新的数组,原数组不变。
+      //   其中的参数为左闭右开
+      console.log(arr13.slice(2, 4)); //["c", "d"]
+      console.log(arr13.slice(2)); //["c", "d", "e"]
+      console.log(arr13); //原数组不变
+
+      //   （11）删除或替换指定索引位置的元素。返回值为被修改的内容，原数组会被修改。
+
+      //   从第 2 位开始删除所有元素
+      var myFish = ["angel", "clown", "mandarin", "sturgeon"];
+      var removed = myFish.splice(2);
+      console.log(myFish); //["angel", "clown"]
+
+      //   从第 3 位开始删除 1 个元素
+      var myFish = ["angel", "clown", "drum", "mandarin", "sturgeon"];
+      var removed = myFish.splice(3, 1);
+      console.log(myFish); //["angel", "clown", "drum", "sturgeon"]
+
+      //   从倒数第 2 位开始删除 1 个元素
+      var myFish = ["angel", "clown", "mandarin", "sturgeon"];
+      var removed = myFish.splice(-2, 1);
+      console.log(myFish); //["angel", "clown", "sturgeon"]
+
+      //   从第 2 位开始删除 0 个元素，插入“drum” 和 "guitar"
+      var myFish = ["angel", "clown", "mandarin", "sturgeon"];
+      var removed = myFish.splice(2, 0, "drum", "guitar");
+      console.log(myFish); //["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"]
+    </script>
+  </body>
+</html>
