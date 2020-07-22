@@ -9,7 +9,7 @@
     <script>
       console.log(new Date());
       console.log(new Date(2020, 7, 18)); //这种传参的方式返回的月份要大一个月，因为实际月份为0-11，7表示的是八月
-      console.log(new Date("2020-7-18"));
+      console.log(new Date("2020-07-18"));
 
       var date = new Date();
       console.log(date.getFullYear()); //2020 获取年份
@@ -41,7 +41,7 @@
           date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
         var s =
           date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-        return `${y}-${m}-${d} ${h}:${min}:${s}`;
+        return `${y}-${m}-${d} ${weeks[date.getDay()]} ${h}:${min}:${s}`;
       }
       console.log(getTime());
 

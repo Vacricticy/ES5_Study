@@ -29,6 +29,9 @@
 
       //   判断是否为非数字isNaN()
       console.log(isNaN(222)); //false
+      console.log(isNaN("222")); //false
+      console.log(isNaN("222" - 111)); //false
+      console.log(isNaN("2aa" - 111)); //true
     </script>
   </body>
 </html>

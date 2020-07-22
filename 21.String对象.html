@@ -10,7 +10,7 @@
       // 1.基本包装类型：
       var str = "liu";
       console.log(str.length); //3
-      //   按理说str应该属于简单数据类型String，所以不存在 .属性 这种形式。但这里能访问.length属性是因为js引擎作了特殊处理，这里属于基本包装类型。
+      //   按理说str应该属于简单数据类型string，所以不存在 .属性 这种形式。但这里能访问.length属性是因为js引擎作了特殊处理，将这个变量处理为了基本包装类型。
 
       //   基本包装类型：就是js引擎会自动将简单数据类型 包装为 复杂数据类型。
       // var str="liu"相当于：
@@ -18,9 +18,11 @@
       // str=tmp;
       // tmp=null;
 
-      // 2.字符串的不可变性。注意：是字符串的不可变性，其他数据类型是直接在原内存空间修改值。
+      // 2.字符串的不可变性。
       //   每次赋值先是在内存中开辟一块空间存储这个值，然后再让这个变量指向这个内存。
       //   所以字符串在拼接的时候，会不断的开辟空间,消耗内存。
+
+      // 注意：只有字符串具有不可变性，其他数据类型是直接在原内存空间修改值。
       var str2 = "liu";
       str2 = "xiao";
       for (var i = 0; i < 100; i++) {
@@ -87,8 +89,8 @@
       var str2 = "bbb";
       console.log(str1.concat(str2));
 
-      //   (5)截取字符串
-      //   String.prototype.substr([起始索引位置，截取的个数])
+      //   (5)‘截取’字符串
+      //   String.prototype.substr([起始索引位置，‘截取的个数’])
       var str = "abcdfeg";
       console.log(str.substr(2, 4)); //cdfe
       console.log(str.substr(-2)); //eg

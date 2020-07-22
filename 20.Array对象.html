@@ -22,26 +22,6 @@
       console.log(Array.isArray((2, 4, 5))); //   h5新增的方法
       console.log(Array.isArray([2, 4, 5]));
 
-      console.log("instanceof的作用：");
-      function Father() {}
-      var person = new Father();
-      console.log(person instanceof Father); //true
-
-      console.log({} instanceof Object); //true
-      console.log(typeof { name: "liuxiaokang" }); //object
-
-      console.log([] instanceof Array); //true
-      console.log(typeof [1, 2]); //object
-
-      console.log("" instanceof String); //false
-      console.log("aaa" instanceof String); //false
-
-      console.log(typeof new Date("2020-07-01")); //object
-      console.log(typeof "2020-07-01"); //string
-
-      // instanceof用于判断一个对象是否是另一个构造函数的实例。
-      // 而typeof用于返回对象所属的数据类型
-
       //   3.数组的常用方法:
       var arr5 = [4, 5, 6, 7];
 
@@ -50,7 +30,7 @@
       console.log(arr5);
 
       //（2）在数组前面添加元素。
-      console.log(arr5.unshift(1, 2, 3)); //9
+      console.log(arr5.unshift(1, 2, 3)); //9 返回值为新数组长度
       console.log(arr5);
 
       //（3）删除最后一个元素
@@ -104,7 +84,7 @@
       var arr12 = arr10.concat(arr11);
       console.log(arr12); //[1, 2, 4, 5, 6, 7]
 
-      //   (10)截取数组Array.prototype.slice()。
+      //   (10)‘截取’数组Array.prototype.slice()。
       var arr13 = ["a", "b", "c", "d", "e"];
       //   该方法会返回一个新的数组,原数组不变。
       //   其中的参数为截取的起始位置和末尾位置，且是左闭右开
@@ -112,7 +92,7 @@
       console.log(arr13.slice(2)); //["c", "d", "e"]
       console.log(arr13); //原数组不变
 
-      //   （11）删除或替换指定索引位置的元素。
+      //   （11）‘删除或替换’指定索引位置的元素。
       // Array.prototype.splice([删除的索引位置，删除的个数，删除后添加的值])
       // 返回值为被修改的内容，原数组会被修改。
 

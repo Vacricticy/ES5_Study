@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // instanceof与typeof的区别：
+      // instanceof用于判断一个‘对象’是否是另一个构造函数的实例。instanceof右边必须是构造函数的名称。instanceof返回的值是布尔类型的。
+      // typeof用于返回变量所属的数据类型,返回的值包括number,string,boolean,undefined,object,function。
+      // typeof对于丰富的对象实例，只能返回object
+      function Father() {}
+      var person = new Father();
+      console.log(person instanceof Father); //true
+
+      console.log({} instanceof Object); //true
+      console.log(typeof { name: "liuxiaokang" }); //object
+
+      console.log([] instanceof Array); //true
+      console.log(typeof [1, 2]); //object
+
+      console.log("" instanceof String); //false
+      console.log("aaa" instanceof String); //false
+
+      console.log(typeof new Date("2020-07-01")); //object
+      console.log(typeof "2020-07-01"); //string
+    </script>
+  </body>
+</html>
