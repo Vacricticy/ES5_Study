@@ -48,8 +48,14 @@
       // （6）数组排序：
 
       var arr7 = [2, 41, 12, 56, 6];
+      console.log("******数组排序******");
+
+      // 默认排序顺序是在将元素转换为字符串，然后一个字符一个字符比较的。缺点：只能处理10以内的数字排序
+      // arr7.sort();
+
       // 升序排列
       // arr7.sort((a, b) => a - b);
+
       // 降序排列
       // arr7.sort((a, b) => b - a);
       console.log(arr7);
@@ -111,7 +117,7 @@
       var removed = myFish.splice(-2, 1);
       console.log(myFish); //["angel", "clown", "sturgeon"]
 
-      //   从第 2 位开始删除 0 个元素，插入“drum” 和 "guitar"
+      //   从第 2 位元素前插入“drum” 和 "guitar"
       var myFish = ["angel", "clown", "mandarin", "sturgeon"];
       var removed = myFish.splice(2, 0, "drum", "guitar");
       console.log(myFish); //["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"]
