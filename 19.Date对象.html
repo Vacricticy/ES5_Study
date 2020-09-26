@@ -16,6 +16,9 @@
       console.log(date.getMonth()); //6 获取的月份为0-11，比实际的小一个月
       console.log(date.getDate()); //18 获取日期使用的是getDate,而不是getDay
       console.log(date.getDay()); //6 获取的星期数为0-6，0为星期天。
+      let yesterday = new Date("2020-09-20");
+      console.log(yesterday.getDay()); //0
+
       console.log(date.getHours());
       console.log(date.getMinutes());
       console.log(date.getSeconds());
@@ -53,10 +56,11 @@
       //   h5新增的方法：
       console.log(Date.now());
 
-      //   倒计时的实现：
+      //   倒计时(天/时/分/秒)的实现：
       function getCountDown(future) {
         var now = +new Date();
         future = +new Date(future);
+        console.log(future - now);
         var times = (future - now) / 1000; //获取相隔的秒数
         var d = parseInt(times / 60 / 60 / 24);
         d = d < 10 ? "0" + d : d;
@@ -68,7 +72,11 @@
         s = s < 10 ? "0" + s : s;
         return `${d}天${h}时${m}分${s}秒`;
       }
-      console.log(getCountDown("2020-8-20 23:00:00"));
+      console.log(getCountDown("2020-09-22 23:00:00"));
+
+      let aa = new Date();
+      let bb = new Date("2020-09-22 23:00:00");
+      console.log(bb - aa);
     </script>
   </body>
 </html>

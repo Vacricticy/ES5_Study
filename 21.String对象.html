@@ -19,10 +19,13 @@
       // tmp=null;
 
       // 2.字符串的不可变性。
+      let a = "bbb";
+      a[0] = "a";
+      console.log(a); //bbb
+
       //   每次赋值先是在内存中开辟一块空间存储这个值，然后再让这个变量指向这个内存。
       //   所以字符串在拼接的时候，会不断的开辟空间,消耗内存。
 
-      // 注意：只有字符串具有不可变性，其他数据类型是直接在原内存空间修改值。
       var str2 = "liu";
       str2 = "xiao";
       for (var i = 0; i < 100; i++) {
@@ -90,13 +93,13 @@
       console.log(str1.concat(str2));
 
       //   (5)‘截取’字符串
-      //   String.prototype.substr([起始索引位置，‘截取的个数’])
+      //   String.prototype.substring([起始索引位置，‘截取的个数’])
       var str = "abcdfeg";
-      console.log(str.substr(2, 4)); //cdfe
-      console.log(str.substr(-2)); //eg
+      console.log(str.substring(2, 4)); //cdfe
+      console.log(str.substring(-2)); //eg
 
       //   (6)替换字符串
-      //   String.prototype,splice([被替换的字符，想要替换的字符])
+      //   String.prototype.replace([被替换的字符，想要替换的字符])
       var str = "andyandyandy";
       console.log(str.replace("a", "b")); //bndyandyandy
 
@@ -111,12 +114,28 @@
       //  （7）字符串转换为数组(分隔字符串)
       var str = "aaa-bbb-ccc";
       console.log(str.split("-")); //["aaa", "bbb", "ccc"]
+      var str2 = "sdadsfsd";
+      console.log(str2.split("")); //["s", "d", "a", "d", "s", "f", "s", "d"]
 
       //   (8)转换大小写
       var str = "jadjasSUUCHQA";
       str.t;
       console.log(str.toLowerCase());
       console.log(str.toUpperCase());
+
+      // (9)slice 与数组的slice相同，截取出[m,n)的字符串
+
+      // （10）match 用于匹配字符串，返回值为一个数组，
+      var str = "cat, mbat, sat, fat";
+      console.log(str.match("bat")); //["bat", index: 1, input: "cat, bat, sat, fat", groups: undefined]
+      console.log(str.match("mat")); //null
+
+      // （11）search同match相似，但返回值为匹配的第一个元素的位置，没有则返回-1
+      var str = "cat, bat, sat, fat";
+      console.log(str.search("bat")); //5
+      console.log(str.search("mbat")); //-1
+
+      // replace,match,search均可以与正则表达式结合使用
     </script>
   </body>
 </html>
