@@ -10,6 +10,8 @@ console.log({ name: "liu" }.toString()); //[object Object]
 console.log(typeof o.toString()); //string
 console.log([].toString()); //""
 console.log([22, 33].toString()); //"22,33"
+console.log([1, 2, 3, 4, [1, 2, 3], [4, ["a", "b", "c"], 5]].toString()); //'1,2,3,4,1,2,3,4,a,b,c,5'
+
 console.log(new Date()); //2020-09-26T09:47:15.601Z
 console.log(new Date().toString()); //Sat Sep 26 2020 17:46:57 GMT+0800 (GMT+08:00)
 
