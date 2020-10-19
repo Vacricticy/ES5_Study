@@ -27,3 +27,14 @@ Boolean(123); // true
 // 某些场合，原始类型的值会自动当作包装对象调用，即调用包装对象的属性和方法。这时，JavaScript 引擎会自动将原始类型的值转为包装对象实例，并在使用后立刻销毁实例。
 "abc".length; // 3
 // 上面代码中，abc是一个字符串，本身不是对象，不能调用length属性。JavaScript 引擎自动将其转为包装对象，在这个对象上调用length属性。调用结束后，这个临时对象就会被销毁。这就叫原始类型与实例对象的自动转换。
+
+// parseInt与Number的区别：
+console.log(Number("12")); //12
+console.log(Number("12nnn")); //NaN
+console.log(Number(null)); //0
+console.log(Number(undefined)); //NaN
+
+console.log(["1", "2", "110"].map(parseInt)); //[1,NaN,6]
+console.log(parseInt("12nm")); //12
+console.log(parseInt("0x12")); //18
+console.log(parseInt("012")); //12

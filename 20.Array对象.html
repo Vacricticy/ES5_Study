@@ -42,17 +42,19 @@
       console.log(arr5);
 
       // （5）翻转数组：
+      console.log("******翻转数组******");
       var arr6 = [1, 4, 2, 5];
       console.log(arr6.reverse()); //[5, 2, 4, 1]
-      console.log(arr6);
+      console.log(arr6); //[5, 2, 4, 1]
 
       // （6）数组排序：
 
-      var arr7 = [2, 41, 12, 56, 6];
+      var arr7 = [2, 20, 41, 12, 56, 6];
       console.log("******数组排序******");
 
       // 默认排序顺序是在将元素转换为字符串，然后一个字符一个字符比较的。缺点：只能处理10以内的数字排序
-      // arr7.sort();
+      arr7.sort();
+      console.log(arr7); //[12, 2, 20, 41, 56, 6]
       arr7.sort((a, b) => {
         // if (a > b) {
         //   return -1;
@@ -97,10 +99,11 @@
       console.log(arr9.join("*")); //12*43*667
 
       //   （9） 合并数组(连接数组)
+      console.log("--------合并数组---------");
       var arr10 = [1, 2, 4];
       var arr11 = [5, 6, 7];
       var arr12 = arr10.concat(arr11);
-      console.log(arr10);
+      console.log(arr10); //[1, 2, 4]
       console.log(arr12); //[1, 2, 4, 5, 6, 7]
 
       //   (10)‘截取’数组Array.prototype.slice()。------取出某些元素使用
