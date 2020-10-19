@@ -5,9 +5,9 @@ var o = new Object();
 console.log(o.toString()); //  [object Object]
 console.log({}.toString()); //[object Object]
 console.log({ name: "liu" }.toString()); //[object Object]
+console.log(typeof o.toString()); //string
 
 // 但是！！！！字符串，数组，Date等对象拥有自定义的toString方法
-console.log(typeof o.toString()); //string
 console.log([].toString()); //""
 console.log([22, 33].toString()); //"22,33"
 console.log([1, 2, 3, 4, [1, 2, 3], [4, ["a", "b", "c"], 5]].toString()); //'1,2,3,4,1,2,3,4,a,b,c,5'
@@ -22,11 +22,13 @@ function Person(name, age, sex) {
   this.sex = sex;
 }
 let person = new Person("刘小康", 21, "男");
+console.log(person); //Person { name: '刘小康', age: 21, sex: '男' }
 console.log(person.toString()); //[object Object]
 
 Person.prototype.toString = function () {
   return `个人信息：  姓名：${this.name};  年龄：${this.age};  性别：${this.sex}`;
 };
+console.log(person); //Person { name: '刘小康', age: 21, sex: '男' }
 console.log(person.toString()); //个人信息：  姓名：刘小康;  年龄：21;  性别：男
 
 // 3.使用Object.prototype.toString 检测数据类型:通过该方法可以实现封装一个函数用于判断变量的类型
