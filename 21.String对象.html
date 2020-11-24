@@ -93,10 +93,10 @@
       console.log(str1.concat(str2));
 
       //   (5)‘截取’字符串
-      //   String.prototype.substring([起始索引位置，‘截取的个数’])
+      //   String.prototype.substr([起始索引位置，‘截取的个数’])
       var str = "abcdfeg";
-      console.log(str.substring(2, 4)); //cdfe
-      console.log(str.substring(-2)); //eg
+      console.log(str.substr(2, 4)); //cdfe
+      console.log(str.substr(-2)); //eg
 
       //   (6)替换字符串
       //   String.prototype.replace([被替换的字符，想要替换的字符])
@@ -105,9 +105,10 @@
 
       //   案例：不使用正则表达式，将所有的o字符替换为*
       var str = "aaabbbooocccdddoooaaa";
-      console.log(str);
-      while (str.indexOf("o") != -1) {
-        str = str.replace("o", "*");
+      for (var i = 0; i < str.length; i++) {
+        if (str[i] == "o") {
+          str = str.replace("o", "m");
+        }
       }
       console.log(str);
 
